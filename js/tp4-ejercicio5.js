@@ -26,42 +26,46 @@ class Persona{
   }
 
   mostrarGeneracion(){
+    document.write('<h2>Generación</h2>')
     if(this.anioNacimiento >= 1930 && this.anioNacimiento <= 1948){
       document.write(`
-        <h3>Generación: Silent Generation</h3>
+        <p>La persona pertenece a la Generación Silent Generation</p>
         <p>Rasgo característico: Austeridad</p>
         `);
     } else if(this.anioNacimiento >= 1949 && this.anioNacimiento <= 1968){
       document.write(`
-        <h3>Generación: Baby boom</h3>
+        <p>La persona pertenece a la Generación Baby boom</p>
         <p>Rasgo característico: Ambición</p>
         `);        
     } else if(this.anioNacimiento >= 1969 && this.anioNacimiento <= 1980){
       document.write(`
-        <h3>Generación: Generación X</h3>
+        <p>La persona pertenece a la Generación X</p>
         <p>Rasgo característico: Obsesión por el éxito</p>
         `);
     } else if(this.anioNacimiento >= 1981 && this.anioNacimiento <= 1993){
       document.write(`
-        <h3>Generación: Generación Y</h3>
+        <p>La persona pertenece a la Generación Y</p>
         <p>Rasgo característico: Frustración</p>
         `);
     } else if(this.anioNacimiento >= 1994 && this.anioNacimiento <= 2010){
       document.write(`
-        <h3>Generación: Generación Z</h3>
+        <p>La persona pertenece a la Generación Z</p>
         <p>Rasgo característico: Irreverencia</p>
         `);
     } else{
       document.write('La persona no pertenece a una generación en específico o se ingresó un valor inválido.');
     }
+    document.write('<hr>')
   }
 
   esMayorDeEdad(){
+    document.write('<h2>Mayoría de edad</h2>')
     if (this.edad >= 18) {
-      document.write('La persona es mayor de edad')
+      document.write('<p>La persona es mayor de edad</p>')
     } else {
-      document.write('La persona es menor de edad')
+      document.write('<p>La persona es menor de edad</p>')
     }
+    document.write('<hr>')
   }
 
   mostrarDatos(){
@@ -76,17 +80,20 @@ class Persona{
         <li>Año de Nacimiento: ${this.anioNacimiento}</li>
         <li>Nacionalidad: ${this.nacionalidad}</li>
       </ul>
+      <hr>
     `)
   }
 
   generarDNI(){
     this.dni = Math.floor(Math.random() * 99999999) + 1
+    document.write(`Nuevo DNI generado: ${this.dni} `)
   }
 }
 
-let edadUsuario = parseInt(prompt('Ingrese su año de nacimiento'))
+let anioNacimiento = parseInt(prompt('Ingrese su año de nacimiento'))
 
-const juan = new Persona('Juan', 29, this.dni, 'H', 80, 170, edadUsuario, 'argentino')
-juan.generarDNI()
+const juan = new Persona('Juan', 29, 12345678, 'H', 80, 170, anioNacimiento, 'argentino')
 juan.mostrarDatos()
+juan.esMayorDeEdad()
 juan.mostrarGeneracion()
+juan.generarDNI()
